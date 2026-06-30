@@ -1,15 +1,13 @@
 ---
-name: MAE
+name: ViT
 date: 2026-06-30
 categories:
   - Notes
   - Models
-conf: ECCV 2021
-refs:
-  - ViT
+conf: CVPR 2019
 ---
 
-# MAE
+# ViT
 
 This is the first post on the blog. Replace it with an introduction, a field note, or the first model you want to share.
 

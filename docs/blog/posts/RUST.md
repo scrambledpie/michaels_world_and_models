@@ -1,9 +1,13 @@
 ---
+name: RUST
 date: 2026-06-30
 categories:
   - Notes
   - Models
 conf: CVPR 2023
+refs:
+  - SRT
+  - ViT
 ---
 
 # RUST

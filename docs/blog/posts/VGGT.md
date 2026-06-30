@@ -1,9 +1,13 @@
 ---
+name: VGGT
 date: 2026-06-30
 categories:
   - Notes
   - Models
 conf: CVPR 2025
+refs:
+  - ViT
+  - MAE
 ---
 
 # VGGT

@@ -1,9 +1,12 @@
 ---
+name: SRT
 date: 2026-06-30
 categories:
   - Notes
   - Models
 conf: CVPR 2021
+refs:
+  - ViT
 ---
 
 # SRT

@@ -1,9 +1,14 @@
 ---
+name: D4RT
 date: 2026-06-30
 categories:
   - Notes
   - Models
 conf: CVPR 2026
+refs:
+  - MAE
+  - SRT
+  - ViT
 ---
 
 # D4RT

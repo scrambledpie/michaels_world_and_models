@@ -28,3 +28,11 @@
 .md-typeset .post-conf-group h2 {
   margin-bottom: 0;
 }
+
+.md-typeset .post-ref-list {
+  padding-left: 1.25rem;
+}
+
+.md-typeset .post-ref-list li {
+  margin: 0.35rem 0;
+}

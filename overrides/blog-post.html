@@ -111,7 +111,7 @@
                 </nav>
               </li>
             </ul>
-            {% if page.config.links %}
+            {% if page.config.links or page.meta.refs %}
               <ul class="md-post__meta md-nav__list">
                 <li class="md-nav__item md-nav__item--section">
                   <div class="md-post__title">
@@ -121,10 +121,34 @@
                   </div>
                   <nav class="md-nav">
                     <ul class="md-nav__list">
-                      {% for nav_item in page.config.links %}
-                        {% set path = "__ref_" ~ loop.index %}
-                        {{ item.render(nav_item, path, 1) }}
-                      {% endfor %}
+                      {% if page.config.links %}
+                        {% for nav_item in page.config.links %}
+                          {% set path = "__ref_" ~ loop.index %}
+                          {{ item.render(nav_item, path, 1) }}
+                        {% endfor %}
+                      {% endif %}
+                      {% if page.meta.refs %}
+                        {% for ref in page.meta.refs %}
+                          {% set target = namespace(title = ref, url = "") %}
+                          {% for post in page.parent.posts %}
+                            {% if post.meta.name == ref or post.title == ref %}
+                              {% set target.title = post.meta.name or post.title %}
+                              {% set target.url = post.url %}
+                            {% endif %}
+                          {% endfor %}
+                          <li class="md-nav__item">
+                            {% if target.url %}
+                              <a href="{{ target.url | url }}" class="md-nav__link">
+                                <span class="md-ellipsis">{{ target.title }}</span>
+                              </a>
+                            {% else %}
+                              <span class="md-nav__link">
+                                <span class="md-ellipsis">{{ target.title }}</span>
+                              </span>
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      {% endif %}
                     </ul>
                   </nav>
                 </li>
@@ -140,6 +164,27 @@
     <article class="md-content__inner md-typeset">
       {% block content %}
         {% include "partials/content.html" %}
+        {% if page.meta.refs %}
+          <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+          <ul class="post-ref-list">
+            {% for ref in page.meta.refs %}
+              {% set target = namespace(title = ref, url = "") %}
+              {% for post in page.parent.posts %}
+                {% if post.meta.name == ref or post.title == ref %}
+                  {% set target.title = post.meta.name or post.title %}
+                  {% set target.url = post.url %}
+                {% endif %}
+              {% endfor %}
+              <li>
+                {% if target.url %}
+                  <a href="{{ target.url | url }}">{{ target.title }}</a>
+                {% else %}
+                  {{ target.title }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       {% endblock %}
     </article>
   </div>
