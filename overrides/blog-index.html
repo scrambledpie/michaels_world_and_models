@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner md-typeset">
+      {{ page.content }}
+
+      {% for conf, conf_posts in posts | groupby("meta.conf", default = "Other") %}
+        <section class="post-conf-group">
+          <h2>{{ conf }}</h2>
+          <ul class="post-title-list">
+            {% for post in conf_posts %}
+              <li>
+                <a href="{{ post.url | url }}">{{ post.post.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endfor %}
+
+      {% if pagination %}
+        {% block pagination %}
+          {% include "partials/pagination.html" %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
