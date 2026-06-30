@@ -1,6 +1,6 @@
 site_name: Michael's World and Models
 site_description: Notes, essays, and experiments.
-site_url: "https://scrambledpie.github.io/michaels_world_and_models/"
+site_url: "https://bayesianblog.com/michaels_world_and_models/"
 
 theme:
   name: material
