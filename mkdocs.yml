@@ -7,7 +7,6 @@ theme:
   custom_dir: overrides
   language: en
   features:
-    - navigation.instant
     - navigation.tracking
     - navigation.sections
     - navigation.indexes
@@ -42,9 +41,13 @@ plugins:
       archive: true
       categories: true
 
+hooks:
+  - hooks/graph.py
+
 nav:
   - Home: index.md
   - Blog: blog/index.md
+  - Graph: graph.md
   - About: about.md
 
 markdown_extensions:

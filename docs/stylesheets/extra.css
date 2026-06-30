@@ -36,3 +36,42 @@
 .md-typeset .post-ref-list li {
   margin: 0.35rem 0;
 }
+
+.post-graph {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.post-graph__svg {
+  display: block;
+  min-width: 680px;
+  width: 100%;
+}
+
+.post-graph__edge {
+  fill: none;
+  stroke: var(--md-default-fg-color--light);
+  stroke-width: 2;
+}
+
+.post-graph__arrowhead {
+  fill: var(--md-default-fg-color--light);
+}
+
+.post-graph__node {
+  fill: var(--md-code-bg-color);
+  stroke: var(--md-primary-fg-color);
+  stroke-width: 1.5;
+}
+
+.post-graph__node-link:hover .post-graph__node {
+  fill: var(--md-accent-fg-color--transparent);
+  stroke: var(--md-accent-fg-color);
+}
+
+.post-graph__label {
+  fill: var(--md-default-fg-color);
+  font-size: 14px;
+  font-weight: 650;
+  pointer-events: none;
+}
